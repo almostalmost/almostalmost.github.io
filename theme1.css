@@ -1,0 +1,148 @@
+/*these are for general use*/
+p{
+    color:red
+}
+
+div {
+    border:solid black;
+}
+/*these show the difference between width and maxwidth*/
+#main {
+    width: 600px;
+    margin: 0 auto;
+    border: solid;
+    border-color:green;
+}
+
+#main2 {
+    max-width: 600px;
+    margin: 0 auto;
+    border: solid;
+    border-color:blue;
+} 
+/*these are used to maintain the width of the box element 
+after adjusting the margin and padding*/
+.WOBS {
+    width: 600px;
+    margin: 20 auto;
+    border: solid red;
+}
+
+.WOBS2 {
+    width: 600px;
+    margin: 20 auto;
+    padding: 50px;
+    border: solid red 10px;
+}
+
+.BS {
+    width: 600px;
+    margin: 20 auto;
+    border: solid blue;
+    -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.BS2 {
+    width: 600px;
+    margin: 20 auto;
+    padding: 50px;
+    border: solid blue 10px;
+    -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/*these are general box elements*/
+.container {
+    position: relative;
+    border: solid pink;
+}
+
+/*nav {
+    position: absolute;
+    left: 0px;
+    width: 194px;
+    border: solid red;
+}*/
+
+section {
+    margin-left: 200px;
+    border: solid green;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 70px;
+    background-color: white;
+    width: 100%;
+    border: solid blue;
+}
+
+img {
+    float: left;
+    margin: 0 0 1em 1em;
+    height:40%;
+    width:30%;
+    clear: left;
+}
+/*used to clear and element when overlapping*/
+.clear {
+    clear: left;
+}
+
+.clearfix {
+    clear:left;
+    overflow: auto;
+}
+/*these stack box elements after they've been shrunk
+to a specific pixel vaule*/
+@media screen and (min-width:600px) {
+  nav {
+    float: left;
+    width: 25%;
+    border: red solid;
+  }
+  
+    section {
+    margin-left: 25%;
+    border:green solid;
+  }
+}
+
+@media screen and (max-width:599px) {
+  nav li {
+    display: inline;
+  }
+  
+   section li {
+    display: inline;
+  }
+}
+
+/*used for inline blocks*/
+
+.nav2 {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  
+
+}
+.column {
+  display: inline-block;
+  vertical-align: top;
+  width: 75%;
+}
+
+.three-column {
+  padding: 1em;
+  -moz-column-count: 3;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1em;
+  column-count: 3;
+  column-gap: 1em;
+}
