@@ -1,0 +1,98 @@
+/* Space out content a bit */
+body {
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+h1 {
+   color: black;
+   -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: .5px;
+   -webkit-text-stroke-color: purple;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #9900CC;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #9900CC;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .jumbotron, 
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  background-position:center;
+  background-image:url("https://41.media.tumblr.com/dfe655684975f1b17d0a30b95334c1bd/tumblr_nyng1riGcL1uu7m1ro1_540.jpg");
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.jumbotron .btn {
+  padding: 4px 24px;
+  opacity: 0.4;
+  font-size: 15px;
+  background-color: #9900CC;
+  border-color: #6600FF;
+  border-width:4px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
