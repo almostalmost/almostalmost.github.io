@@ -47,7 +47,7 @@ using namespace std;
 template &lt;typename T&gt;
 int seqSearch(const vector&lt;T&gt;&amp; v, int first, int last, const T&amp; target)
 {
-<p style="color:purple"> itterates through the vector</p>
+<p style="color:green"> itterates through the vector</p>
     int i = first;
     while(i != last)   
     {
@@ -55,6 +55,7 @@ int seqSearch(const vector&lt;T&gt;&amp; v, int first, int last, const T&amp; ta
         {
             i++;
         }
+<p style="color:green"> returns the index where object is found</p>
         else if (v[i] == target)
         {
             return i;
