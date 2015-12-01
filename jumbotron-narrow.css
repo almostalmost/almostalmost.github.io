@@ -58,6 +58,7 @@ h6 {
 
 /* Main marketing message and sign up button */
 .jumbotron {
+  color: #330066;
   background-position:center;
   background-image:url("https://41.media.tumblr.com/dfe655684975f1b17d0a30b95334c1bd/tumblr_nyng1riGcL1uu7m1ro1_540.jpg");
   text-align: center;
