@@ -33,65 +33,35 @@
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted" style="font-color:black"> Ivan Rodriguez</h3></h3>
+        <h3 class="text-muted" style="font-color:black"> Insertion Sort</h3></h3>
       </div>
       <pre>
 #include<iostream>
-
 #include<vector>
-
 #include<random>
-
 #include<stdlib.h>
-
 using namespace std;
-
-
-
 int main()
-
 {
-
     int n;
-
     cout << "insert size of vector: \n";
-
     cin >> n;
-
-    //creates an empty vector of size n
-
     vector<int>v(n);
-
-    //fills the vector with random integers in the range [0-1,000,000)
-
     int k;
-
     for(k=0; k < n; ++k){
-
     v[k] = rand()%1000000+1;
-
     }
 
-
-
     //insertion sort
-
     int i;
-
     int j;
-
     int elem;
-
-    for (i = 1; i < n; i++){
-
+    for (i = 1; i < n; i++)
+    {
         for (elem = v[i], j = i-1; j >=0 and elem < v[j]; j--)
-
             v[j+1] = v[j];
-
         v[j+1] = elem;
-
-        }
-
+    }
 }
 </pre>
       <footer class="footer">
