@@ -35,37 +35,65 @@
         </nav>
         <h3 class="text-muted" style="font-color:black"> Ivan Rodriguez</h3></h3>
       </div>
+      <pre>
+#include<iostream>
 
-      <div class="jumbotron">
-        <h1 class="text-muted">C++ Projects</h1>
-        <h6>Follow me on twitter!</h6>
-        <p><a class="btn btn-lg btn-success" href="https://twitter.com/IvanIR92" role="button">@IvanIR92</a></p>
-      </div>
+#include<vector>
 
-      <div class="row marketing" style="background-color: #C8C8C8">
-        <div class="col-lg-6">
-         <a href="SeqSearch.html"><h4>Sequential Search</h4></a> 
-          <p>This method uses a vector class to search for an object in a sequence.</p>
+#include<random>
 
-          <h4>Bubble Sort</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+#include<stdlib.h>
 
-          <h4>Insert Sort</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
+using namespace std;
 
-        <div class="col-lg-6">
-          <h4>Select Sort</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-          <h4>Stack Container</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-          <h4>Vector Container</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
+int main()
 
+{
+
+    int n;
+
+    cout << "insert size of vector: \n";
+
+    cin >> n;
+
+    //creates an empty vector of size n
+
+    vector<int>v(n);
+
+    //fills the vector with random integers in the range [0-1,000,000)
+
+    int k;
+
+    for(k=0; k < n; ++k){
+
+    v[k] = rand()%1000000+1;
+
+    }
+
+
+
+    //insertion sort
+
+    int i;
+
+    int j;
+
+    int elem;
+
+    for (i = 1; i < n; i++){
+
+        for (elem = v[i], j = i-1; j >=0 and elem < v[j]; j--)
+
+            v[j+1] = v[j];
+
+        v[j+1] = elem;
+
+        }
+
+}
+</pre>
       <footer class="footer">
         <p>© Company 2014</p>
       </footer>
