@@ -11,6 +11,12 @@ h1 {
    -webkit-text-stroke-width: .5px;
    -webkit-text-stroke-color: purple;
 }
+h6 {
+   color: black;
+   -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: .5px;
+   -webkit-text-stroke-color: purple;
+}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
