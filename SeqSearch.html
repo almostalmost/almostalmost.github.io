@@ -41,22 +41,21 @@
 #include<string>
 using namespace std;
 
-//template for locating an element in a sequence by it's index.
 template <typename T>
 int seqSearch(const vector<T>& v, int first, int last, const T& target)
 {
-    int i = first;//initial indexing variable 
-    while(i != last)//continue loop as long as i is within desired range "last"     
+    int i = first;
+    while(i != last)   
     {
-        if(v[i] != target)//condition checks to see if taget is not found
+        if(v[i] != target)
         {
             i++;//if its not, it checks the next index 
         }
-        else if (v[i] == target)//condition checks if target is found
+        else if (v[i] == target)
         {
-            return i;//if it is, it returns target index
+            return i;
         }
     }
-return -1;//if target is not found or is out of range, returns -1
+return -1;
 }
 </pre></html>
