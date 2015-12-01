@@ -33,64 +33,30 @@
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted" style="font-color:black"> Ivan Rodriguez</h3></h3>
+        <h3 class="text-muted" style="font-color:black">Sequential Search: Vector.</h3></h3>
       </div>
 <pre>
-// Class: CSE 330
-
-// Term: Spring 2015
-
-// Instructor: George M. Georgiou
-
-// Name(s): Ivan Rodriguez
-
-// Lab 2
-
-// Title:Sequential Search: Vector.
-
 #include<iostream>
-
 #include<vector>
-
 #include<string>
-
 using namespace std;
 
-
-
 //template for locating an element in a sequence by it's index.
-
 template <typename T>
-
 int seqSearch(const vector<T>& v, int first, int last, const T& target)
-
 {
-
     int i = first;//initial indexing variable 
-
     while(i != last)//continue loop as long as i is within desired range "last"     
-
     {
-
         if(v[i] != target)//condition checks to see if taget is not found
-
         {
-
             i++;//if its not, it checks the next index 
-
         }
-
         else if (v[i] == target)//condition checks if target is found
-
         {
-
             return i;//if it is, it returns target index
-
         }
-
     }
-
 return -1;//if target is not found or is out of range, returns -1
-
 }
 </pre></html>
