@@ -39,10 +39,10 @@
 <pre>
 #ifndef VECTOR_H
 #define VECTOR_H
-#include <cassert>
-using namespace std
+#include &lt;cassert&gt;
+using namespace std;
 
-template <class T>
+template &lt;class&gt;
 class Vector
 {
 public:
@@ -50,7 +50,7 @@ public:
    Vector();
    Vector(unsigned int size);
    Vector(unsigned int size, const T & initial);
-   Vector(const Vector<T> & v);           
+   Vector(const Vector&lt;T&gt; & v);           
    ~Vector();
    unsigned int capacity() const;         // return capacity of vector (in elements)
    unsigned int size() const;             // return the number of elements in the vector
@@ -64,7 +64,7 @@ public:
    void reserve(unsigned int capacity);   // adjust capacity
    void resize(unsigned int size);        // adjust size
    T & operator[](unsigned int index);    // return reference to numbered element
-   Vector<T> & operator=(const Vector<T> &v);
+   Vector&lt;T&gt; & operator=(const Vector&lt;T&gt; &v);
 private:
    unsigned int my_size;
    unsigned int my_capacity;
@@ -72,22 +72,22 @@ private:
 };
 
 
-template <class T>
-Vector<T>::Vector() //default constructor 
+template &lt;class T&gt;
+Vector&lt;T&gt;::Vector() //default constructor 
 {
 	my_size = 0;
 	my_capacity = 0;
 	buffer = 0;
 }
-template<class T>
-Vector<T>::Vector(unsigned int size)//constructor that takes in a size
+template&lt;class T&gt;
+Vector&lt;T&gt;::Vector(unsigned int size)//constructor that takes in a size
 {
         my_size = size;
         my_capacity = my_size;
         buffer = new T[my_capacity];//creates new array with size "my_capacity"
 }
-template<class T>
-Vector<T>::Vector(unsigned int size, const T &initial)//constructor takes in size and sets them to an initial value
+template&lt;class T&gt;
+Vector&lt;T&gt;::Vector(unsigned int size, const T &initial)//constructor takes in size and sets them to an initial value
 {
         my_size = size;
         my_capacity = my_size;
@@ -97,8 +97,8 @@ Vector<T>::Vector(unsigned int size, const T &initial)//constructor takes in siz
             buffer[i] = initial;
         }
 }
-template<class T>
-Vector<T>::Vector(const Vector<T> &v)//constructor takes in a vector v
+template&lt;class T&gt;
+Vector&lt;T&gt;::Vector(const Vector&lt;T&gt; &v)//constructor takes in a vector v
 {
         my_size = v.size();//copies size of vector 
         my_capacity = my_size;//sets capacity to new size
@@ -108,52 +108,52 @@ Vector<T>::Vector(const Vector<T> &v)//constructor takes in a vector v
             buffer[i] = v.buffer[i];
         }
 } 
-template <class T>
-Vector<T>::~Vector()//deconstructor
+template &lt;class T&gt;
+Vector&lt;T&gt;::~Vector()//deconstructor
 {
         delete [] buffer;
         buffer = 0;
 }
-template <class T>
-unsigned int Vector<T>::capacity()const//returns capacity of the vector
+template &lt;class T&gt;
+unsigned int Vector&lt;T&gt;::capacity()const//returns capacity of the vector
 {
         return my_capacity;
 }
-template <class T>
-unsigned int Vector<T>::size()const//returns size of the vector
+template &lt;class T&gt;
+unsigned int Vector&lt;T&gt;::size()const//returns size of the vector
 {
         return my_size;
 }
-template <class T>
-bool Vector<T>::empty()const//checks to see if the vector is empty
+template &lt;class T&gt;
+bool Vector&lt;T&gt;::empty()const//checks to see if the vector is empty
 {
         if(my_size == 0)
             return true;
         else 
             return false;
 }
-template <class T>
-typename Vector<T>::iterator Vector<T>::begin()//returns an iterator pointing to the first element in the array.
+template &lt;class T&gt;
+typename Vector&lt;T&gt;::iterator Vector&lt;T&gt;::begin()//returns an iterator pointing to the first element in the array.
 {
         return &buffer[0];
 }
-template <class T>
-typename Vector<T>::iterator Vector<T>::end()//returns an iterator pointing to the last element in the array
+template &lt;class T&gt;
+typename Vector&lt;T&gt;::iterator Vector&lt;T&gt;::end()//returns an iterator pointing to the last element in the array
 {
         return &buffer[my_size];
 }
-template <class T>
-T& Vector<T>::front()//returns reference of the first element in the array 
+template &lt;class T&gt;
+T& Vector&lt;T&gt;::front()//returns reference of the first element in the array 
 {
         return buffer[0];
 }
-template <class T>
-T& Vector<T>::back()//returns reference of the last element of the array
+template &lt;class T&gt;
+T& Vector&lt;T&gt;::back()//returns reference of the last element of the array
 {
         return buffer[my_size - 1];
 }
-template <class T>
-void Vector<T>::reserve(unsigned int capacity)//adjusts capacity
+template &lt;class T&gt;
+void Vector&lt;T&gt;::reserve(unsigned int capacity)//adjusts capacity
 { 
         if(capacity > my_capacity)
         {
@@ -167,8 +167,8 @@ void Vector<T>::reserve(unsigned int capacity)//adjusts capacity
         buffer = temp_buffer;// sets original array with the values of temp array
         }
 }
-template <class T>
-void Vector<T>::push_back(const T & value)//adds element to back of the vector
+template &lt;class T&gt;
+void Vector&lt;T&gt;::push_back(const T & value)//adds element to back of the vector
 {
         if(my_size == my_capacity)//check to see of there is room in array
         {   
@@ -177,14 +177,14 @@ void Vector<T>::push_back(const T & value)//adds element to back of the vector
         resize(my_size + 1);//increases size by one
         buffer[my_size -1] = value;//inserts value into the array
 }
-template <class T>
-void Vector<T>::pop_back()
+template &lt;class T&gt;
+void Vector&lt;T&gt;::pop_back()
 {
         assert(my_size != 0);//asserts vector isnt empty
         --my_size;//decrese size by 1 eliminating the element in that location
 }
-template <class T>
-void Vector<T>::resize(unsigned int size)//adjusts size of vector
+template &lt;class T&gt;
+void Vector&lt;T&gt;::resize(unsigned int size)//adjusts size of vector
 {
         if(size > my_capacity)//makes sure size is within capacity
         {
@@ -192,13 +192,13 @@ void Vector<T>::resize(unsigned int size)//adjusts size of vector
         }
         my_size = size;//adjust size
 }
-template <class T>
-T& Vector<T>::operator[](unsigned int index)//overloaded [] operator for vector class
+template &lt;class T&gt;
+T& Vector&lt;T&gt;::operator[](unsigned int index)//overloaded [] operator for vector class
 {
         return buffer[index];
 }
-template <class T>
-Vector<T> &Vector<T>::operator=(const Vector<T> & v)//overloaded = operator vor vector class
+template &lt;class T&gt;
+Vector&lt;T&gt; &Vector&lt;T&gt;::operator=(const Vector<T> & v)//overloaded = operator vor vector class
 {
         return Vector(v);  
 }
