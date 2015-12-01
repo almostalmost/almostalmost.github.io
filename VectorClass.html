@@ -28,44 +28,183 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation" class="active"><a href="index.html">Home</a></li>
             <li role="presentation"><a href="#">About</a></li>
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted" style="font-color:black"> Ivan Rodriguez</h3></h3>
+        <h3 class="text-muted" style="font-color:black"> Vector Class</h3></h3>
       </div>
 
-      <div class="jumbotron">
-        <h1 class="text-muted">C++ Projects</h1>
-        <h6>Follow me on twitter!</h6>
-        <p><a class="btn btn-lg btn-success" href="https://twitter.com/IvanIR92" role="button">@IvanIR92</a></p>
-      </div>
+<pre>
+#ifndef VECTOR_H
+#define VECTOR_H
+#include <cassert>
+using namespace std
 
-      <div class="row marketing" style="background-color: #C8C8C8">
-        <div class="col-lg-6">
-         <a href="SeqSearch.html"><h4>Sequential Search</h4></a> 
-          <p>This method uses a vector class to search for an object in a sequence.</p>
+template <class T>
+class Vector
+{
+public:
+   typedef T *iterator;
+   Vector();
+   Vector(unsigned int size);
+   Vector(unsigned int size, const T & initial);
+   Vector(const Vector<T> & v);           
+   ~Vector();
+   unsigned int capacity() const;         // return capacity of vector (in elements)
+   unsigned int size() const;             // return the number of elements in the vector
+   bool empty() const;
+   iterator begin();                      // return an iterator pointing to the first element
+   iterator end();                        // return an iterator pointing to one past the last element
+   T & front();                           // return a reference to the first element
+   T & back();                            // return a reference to the last element
+   void push_back(const T & value);       // add a new element
+   void pop_back();                       // remove the last element
+   void reserve(unsigned int capacity);   // adjust capacity
+   void resize(unsigned int size);        // adjust size
+   T & operator[](unsigned int index);    // return reference to numbered element
+   Vector<T> & operator=(const Vector<T> &v);
+private:
+   unsigned int my_size;
+   unsigned int my_capacity;
+   T * buffer;
+};
 
-          <h4>Bubble Sort</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-          <h4>Insert Sort</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-
-        <div class="col-lg-6">
-          <h4>Select Sort</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Stack Container</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Vector Container</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
-
+template <class T>
+Vector<T>::Vector() //default constructor 
+{
+	my_size = 0;
+	my_capacity = 0;
+	buffer = 0;
+}
+template<class T>
+Vector<T>::Vector(unsigned int size)//constructor that takes in a size
+{
+        my_size = size;
+        my_capacity = my_size;
+        buffer = new T[my_capacity];//creates new array with size "my_capacity"
+}
+template<class T>
+Vector<T>::Vector(unsigned int size, const T &initial)//constructor takes in size and sets them to an initial value
+{
+        my_size = size;
+        my_capacity = my_size;
+        buffer = new T[my_capacity];
+        for(int i = 0; i < my_size; i++)//sets elements equal to inital
+        {
+            buffer[i] = initial;
+        }
+}
+template<class T>
+Vector<T>::Vector(const Vector<T> &v)//constructor takes in a vector v
+{
+        my_size = v.size();//copies size of vector 
+        my_capacity = my_size;//sets capacity to new size
+        buffer = new T[my_capacity];//creates new empty array
+        for(int i = 0; i < my_size; i++)//copies elements of vector onto array
+        {
+            buffer[i] = v.buffer[i];
+        }
+} 
+template <class T>
+Vector<T>::~Vector()//deconstructor
+{
+        delete [] buffer;
+        buffer = 0;
+}
+template <class T>
+unsigned int Vector<T>::capacity()const//returns capacity of the vector
+{
+        return my_capacity;
+}
+template <class T>
+unsigned int Vector<T>::size()const//returns size of the vector
+{
+        return my_size;
+}
+template <class T>
+bool Vector<T>::empty()const//checks to see if the vector is empty
+{
+        if(my_size == 0)
+            return true;
+        else 
+            return false;
+}
+template <class T>
+typename Vector<T>::iterator Vector<T>::begin()//returns an iterator pointing to the first element in the array.
+{
+        return &buffer[0];
+}
+template <class T>
+typename Vector<T>::iterator Vector<T>::end()//returns an iterator pointing to the last element in the array
+{
+        return &buffer[my_size];
+}
+template <class T>
+T& Vector<T>::front()//returns reference of the first element in the array 
+{
+        return buffer[0];
+}
+template <class T>
+T& Vector<T>::back()//returns reference of the last element of the array
+{
+        return buffer[my_size - 1];
+}
+template <class T>
+void Vector<T>::reserve(unsigned int capacity)//adjusts capacity
+{ 
+        if(capacity > my_capacity)
+        {
+        my_capacity = capacity;
+        T *temp_buffer = new T[my_capacity];//creates temporary array with new capacity
+            for(int i = 0; i < my_size; ++i)//transfers elements from original array to new temp array 
+            {
+            temp_buffer[i] = buffer[i];
+            }
+        delete [] buffer;//deletes elements of old array
+        buffer = temp_buffer;// sets original array with the values of temp array
+        }
+}
+template <class T>
+void Vector<T>::push_back(const T & value)//adds element to back of the vector
+{
+        if(my_size == my_capacity)//check to see of there is room in array
+        {   
+            reserve(my_capacity + 5);//if no more room in array, increases capacity by 5
+        }
+        resize(my_size + 1);//increases size by one
+        buffer[my_size -1] = value;//inserts value into the array
+}
+template <class T>
+void Vector<T>::pop_back()
+{
+        assert(my_size != 0);//asserts vector isnt empty
+        --my_size;//decrese size by 1 eliminating the element in that location
+}
+template <class T>
+void Vector<T>::resize(unsigned int size)//adjusts size of vector
+{
+        if(size > my_capacity)//makes sure size is within capacity
+        {
+        reserve(size);//if not within capacity, adjust capacity
+        }
+        my_size = size;//adjust size
+}
+template <class T>
+T& Vector<T>::operator[](unsigned int index)//overloaded [] operator for vector class
+{
+        return buffer[index];
+}
+template <class T>
+Vector<T> &Vector<T>::operator=(const Vector<T> & v)//overloaded = operator vor vector class
+{
+        return Vector(v);  
+}
+#endif
+</pre>
+    
       <footer class="footer">
         <p>© Company 2014</p>
       </footer>
