@@ -6,7 +6,6 @@ body {
 }
 
 h1 {
-   font-family:impact;
    color: black;
    -webkit-text-fill-color: black; /* Will override color (regardless of order) */
    -webkit-text-stroke-width: .5px;
