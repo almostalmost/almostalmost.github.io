@@ -103,3 +103,8 @@ h6 {
     border-bottom: 0;
   }
 }
+
+div{
+  border-radius:2em;
+}
+}
