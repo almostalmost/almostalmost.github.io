@@ -22,7 +22,7 @@
     <![endif]-->
   </head>
 
-  <body style="background-color: black">
+  <body style="background-color: white">
 
     <div class="container">
       <div class="header clearfix">
@@ -35,6 +35,7 @@
         </nav>
         <h3 class="text-muted" style="font-color:black">Bubble Sort</h3></h3>
       </div>
+<p style="color:purple">bubble sort works by comparing an element at an index with the next element in the vector. If the first element is bigger, it is swaped with the next element.</p>
 
 <pre>
 #include&lt;iostream&gt;
@@ -44,6 +45,7 @@
 using namespace std; 
 int main()
 {
+<p style="color:green">creates an empty vector and fills it with random integers</p>
     int n;
     cout << "insert vector size: \n";
     cin >> n;
@@ -54,6 +56,7 @@ int main()
     }
 
     //bubble sort
+    <p style="color:green">Sorts elements in the vector using bubble sort</p>
     for (int i = n-1; i > 0; i--){
         for (int j = 0; j < i; j++)
             if (v[j] > v[j+1])
