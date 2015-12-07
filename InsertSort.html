@@ -22,7 +22,7 @@
     <![endif]-->
   </head>
 
-  <body style="background-color: black">
+  <body style="background-color: white">
 
     <div class="container">
       <div class="header clearfix">
@@ -35,7 +35,8 @@
         </nav>
         <h3 class="text-muted" style="font-color:black"> Insertion Sort</h3></h3>
       </div>
-      <pre>
+  <p style="color:purple">Insertion sort works by comparing an element at an index with every element before it. If the first element is bigger, it is placed in that index. This process continues untill all the elements in the vector are sorted.</p>    
+ <pre>
 #include&lt;iostream&gt;
 #include&lt;vector&gt;
 #include&lt;random&gt;
@@ -43,6 +44,7 @@
 using namespace std;
 int main()
 {
+<p style="color:green">creates an empty vector and fills it with random integers</p>
     int n;
     cout << "insert size of vector: \n";
     cin >> n;
@@ -51,14 +53,14 @@ int main()
     for(k=0; k < n; ++k){
     v[k] = rand()%1000000+1;
     }
-
+<p style="color:green">sorts the elements in the vector using insertion sort.</p>
     //insertion sort
     int i;
     int j;
     int elem;
     for (i = 1; i < n; i++)
     {
-        for (elem = v[i], j = i-1; j >=0 and elem < v[j]; j--)
+        for (elem = v[i], j = i-1; j > =0 and elem < v[j]; j--)
             v[j+1] = v[j];
         v[j+1] = elem;
     }
