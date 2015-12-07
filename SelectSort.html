@@ -43,6 +43,7 @@
 using namespace std; 
 int main()
 {
+<p "style=color:green"> creates an empty vector and fills it with random integers </p>
     int n;
     cout << "insert vector size: \n";
     cin >> n;
@@ -52,6 +53,7 @@ int main()
     v[i]= rand()%10+1;
     cout << v[i];
     }
+    <p "style=color:green">sorts the elements in the vector using selection sort.</p>
     //selection sort
     for (int i = 0; i < n-1; i++){
         for (int j = i+1; j < n; j++)
