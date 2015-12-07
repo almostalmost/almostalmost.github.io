@@ -22,7 +22,7 @@
     <![endif]-->
   </head>
 
-  <body style="background-color: black">
+  <body style="background-color: white">
 
     <div class="container">
       <div class="header clearfix">
@@ -35,6 +35,7 @@
         </nav>
         <h3 class="text-muted" style="font-color:black"> Selection Sort</h3></h3>
       </div>
+      <p style="color:purple">Selection sort works by finding the minimum value in the iteration and switching it to the front of the sorted part of the vector. </p>
 <pre>
 #include&lt;iostream&gt;
 #include&lt;vector&gt;
@@ -43,7 +44,7 @@
 using namespace std; 
 int main()
 {
-<p "style=color:green"> creates an empty vector and fills it with random integers </p>
+<p style="color:green"> creates an empty vector and fills it with random integers</p>
     int n;
     cout << "insert vector size: \n";
     cin >> n;
@@ -53,7 +54,7 @@ int main()
     v[i]= rand()%10+1;
     cout << v[i];
     }
-    <p "style=color:green">sorts the elements in the vector using selection sort.</p>
+    <p style="color:green">sorts the elements in the vector using selection sort</p>
     //selection sort
     for (int i = 0; i < n-1; i++){
         for (int j = i+1; j < n; j++)
